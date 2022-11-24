@@ -77,7 +77,7 @@ class CharterBloc extends Bloc<CharterEvent, CharterState> {
       return emit(AddCharterSuccessState());
     } on DioError catch (e) {
       print("ERROR CAUGHT::::: $e");
-      showtoast(e.response!.data["message"]);
+      showtoast(e.response!.data["error"]["message"]);
       emit(LoadingEnd());
       return emit(ErrorState(e.message));
     } catch (e) {
