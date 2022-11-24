@@ -27,14 +27,39 @@ class _CharterListState extends State<CharterList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        height: 200,
-        child: Center(
-          child: InkWell(
-            onTap: () {
-              showSheet(context);
-            },
-            child: const Text("tap here!"),
+      body: Center(
+        child: InkWell(
+          onTap: () {
+            showSheet(context);
+          },
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          child: Container(
+            height: 50,
+            width: MediaQuery.of(context).size.width * 0.8,
+            decoration: const BoxDecoration(
+              color: Color.fromRGBO(12, 171, 223, 1),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              boxShadow: [
+                BoxShadow(
+                  color: Color.fromRGBO(12, 171, 223, 0.25),
+                  spreadRadius: 0,
+                  blurRadius: 20,
+                  offset: Offset(0, 10), // changes position of shadow
+                ),
+              ],
+            ),
+            padding: const EdgeInsets.all(10),
+            child: const Center(
+              child: Text(
+                "Tap to search charterer",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Roboto',
+                    color: Colors.white),
+              ),
+            ),
           ),
         ),
       ),
